@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Click Counter</title>
+</head>
+
+<body>
+    <button id="clickButton">Click Me</button>
+    <script crossorigin="anonymous">
+        const clickButton = document.getElementById('clickButton');
+        clickButton.addEventListener('click', async () => {
+            console.log("clicked!!")
+            try {
+                const response = await fetch('http://localhost:3001/click');
+                if (response.ok) {
+                    alert('Click recorded successfully.');
+                } else {
+                    console.log('Failed to record click');
+                }
+            } catch (error) {
+                console.log('An error occurred:', error);
+            }
+        });
+    </script>
+</body>
+
+</html>
